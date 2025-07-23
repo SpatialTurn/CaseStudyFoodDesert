@@ -33,4 +33,4 @@ exercises: 5
 
 | Lesson | Overview                                                                                                                                                         | 
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [Beginner](https://jupyter.iguide.illinois.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FSpatialTurn%2FDataCollection-Notebooks&urlpath=lab%2Ftree%2FDataCollection-Notebooks%2FCensus%2FBeginner.ipynb+&branch=main)       | Learn how to visualize and analyze tabular data downloaded from the USDA Food Access Research Atlas. |
+| [Beginner](https://jupyter.iguide.illinois.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FSpatialTurn%2FDataCollection-Notebooks&urlpath=lab%2Ftree%2FDataCollection-Notebooks%2FCensus%2FTIGER_FoodDesert_Tutorial.ipynb+&branch=main)       | Learn how to visualize and analyze tabular data downloaded from the USDA Food Access Research Atlas. |
