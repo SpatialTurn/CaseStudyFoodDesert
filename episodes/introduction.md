@@ -33,4 +33,6 @@ exercises: 5
 
 | Lesson | Overview                                                                                                                                                         | 
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [Beginner](https://hub.cyberfaces.org/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2FSpatialTurn%2FDataCollection-Notebooks&urlpath=lab%2Ftree%2FDataCollection-Notebooks%2FCensus%2FTIGER_FoodDesert_Tutorial.ipynb+&branch=main)       | Learn how to visualize and analyze tabular data downloaded from the USDA Food Access Research Atlas. |
+| [Beginner] (https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/TIGER_FoodDesert_Tutorial.ipynb) | Learn how to visualize and work with tabular data downloaded from the USDA Food Access Research Atlas. |
+| [Intermediate] () |
+| [Expert] (https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/Expert/Grided_LILA_Analysis_Comparison.ipynb) Uses all the taught basic tutorials to perform a full spatial and network analysis of food deserts in Indiana |
