@@ -206,12 +206,21 @@
 <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         1. Food Desert
         </span>
-      
+      </button>
     </div><!--/div.accordion-header-->
+
+    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
+      <div class="accordion-body">
+        <ul><li><a href="#what-are-we-working-with">What are we working with?</a></li>
+<li><a href="#objectives">Objectives</a></li>
+<li><a href="#module-overview">Module Overview</a></li>
+        </ul></div><!--/div.accordion-body-->
+    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -328,9 +337,8 @@ in terms of socioeconomic factors</li>
 </ul></div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="what-are-we-working-with">What are we working with?<a class="anchor" aria-label="anchor" href="#what-are-we-working-with"></a></h3>
-<div class="section level4">
+<section><h2 class="section-heading" id="what-are-we-working-with">What are we working with?<a class="anchor" aria-label="anchor" href="#what-are-we-working-with"></a></h2>
+<hr class="half-width"><div class="section level4">
 <h4 id="tiger-shape-file">TIGER Shape File<a class="anchor" aria-label="anchor" href="#tiger-shape-file"></a></h4>
 <p>A TIGER/Line Shapefile is a digital file format used by the U.S.
 Census Bureau to represent geographic and cartographic information.
@@ -352,7 +360,6 @@ living in an area. The latest data is from 2019, and it comes for all
 the states/counties in the USA, ideally, we would want to minimize our
 analysis area to maximize the quality of the result.</p>
 </div>
-</div>
 <div class="section level3">
 <h3 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a></h3>
 <p>This Python notebook provides a comprehensive guide for analyzing
@@ -363,9 +370,8 @@ how to collect, merge, and visualize geospatial data to identify
 low-income and low-access areas with limited access to food
 resources.</p>
 </div>
-<div class="section level3">
-<h3 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a></h3>
-<ul><li>Data Collection: Retrieve and process TIGER shapefiles and USDA food
+</section><section><h2 class="section-heading" id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a></h2>
+<hr class="half-width"><ul><li>Data Collection: Retrieve and process TIGER shapefiles and USDA food
 desert datasets.</li>
 <li>Data Merging: Combine geospatial shape file and food desert data for
 analysis.</li>
@@ -373,8 +379,7 @@ analysis.</li>
 census tracts within Indiana.</li>
 <li>Flexibility: Enable analysis for any U.S. state by adjusting input
 parameters.</li>
-</ul></div>
-<div class="section level3">
+</ul><div class="section level3">
 <h3 id="the-setup">The Setup<a class="anchor" aria-label="anchor" href="#the-setup"></a></h3>
 <p>Importing essential Python libraries for data manipulation and
 visualization: - pandas: For handling tabular data (e.g., Excel, text
@@ -408,9 +413,8 @@ taken based on the County code which can be found here. Low Income
 Marion County Indiana 2019: Low Income Tracts in Marion County, Indiana.
 Green Indicates regions of Low Income.</p>
 </div>
-<div class="section level1">
-<h1 id="module-overview">Module Overview<a class="anchor" aria-label="anchor" href="#module-overview"></a></h1>
-<table class="table"><colgroup><col width="14%"><col width="85%"></colgroup><thead><tr class="header"><th>Lesson</th>
+</section><section><h2 class="section-heading" id="module-overview">Module Overview<a class="anchor" aria-label="anchor" href="#module-overview"></a></h2>
+<hr class="half-width"><table class="table"><colgroup><col width="14%"><col width="85%"></colgroup><thead><tr class="header"><th>Lesson</th>
 <th>Overview</th>
 </tr></thead><tbody><tr class="odd"><td><a href="https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/TIGER_FoodDesert_Tutorial.ipynb" target="_blank" class="external-link">Beginner</a></td>
 <td>Learn how to visualize and work with tabular data downloaded from
@@ -423,11 +427,7 @@ network analysis of food deserts in Indiana.</td>
 </tr></tbody></table><!--
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
- --></div>
-
-
-
-      </div> <!-- / div.lesson-content -->
+ --></section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
