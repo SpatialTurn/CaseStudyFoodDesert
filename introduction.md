@@ -29,7 +29,7 @@ exercises: 5
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-### What are we working with?
+## What are we working with?
 
 #### TIGER Shape File
 A TIGER/Line Shapefile is a digital file format used by the U.S. Census Bureau to represent geographic and cartographic information. These files contain data about various geographic features such as roads, rivers, railways, boundaries, and are used for performing spatial analysis. They are free to download from the U.S. Census Bureau website which makes them a valuable resource for researchers, planners, and anyone interested in the field of geospatial analysis. This data comes by state.
@@ -40,7 +40,7 @@ This data consists of information regarding the accessibility of affordable and 
 ### Overview
 This Python notebook provides a comprehensive guide for analyzing food deserts in the United States with a specific focus on Indiana as an example. The notebook is designed to be robust, i.e., it can be used to perform the food desert analysis on any state. The tutorial demonstrates how to collect, merge, and visualize geospatial data to identify low-income and low-access areas with limited access to food resources.
 
-### Objectives
+## Objectives
 - Data Collection: Retrieve and process TIGER shapefiles and USDA food desert datasets.
 - Data Merging: Combine geospatial shape file and food desert data for analysis.
 - Visualization: Create maps to highlight low-income and low access census tracts within Indiana.
@@ -63,7 +63,7 @@ Importing essential Python libraries for data manipulation and visualization:
 ### Visualization
 Explore the metadata for the USDA Food Desert Excel file to understand what each column means. The ones that we are interested in plotting would LILATracts (Low Income & Low Access) and Low Income. The columns only contain 0s and 1s which indicate whether the tract is Low Income or Low Access. 1 indicates "Yes" and 0 indicates "No". For a more detailed analysis, you can plot a smaller area like for our case we chose Marion County. After merging the two datasets, a subset can be taken based on the County code which can be found here. Low Income Marion County Indiana 2019: Low Income Tracts in Marion County, Indiana. Green Indicates regions of Low Income.
 
-# Module Overview
+## Module Overview
 
 | Lesson            | Overview                                                                                                   |
 |-------------------|------------------------------------------------------------------------------------------------------------|
