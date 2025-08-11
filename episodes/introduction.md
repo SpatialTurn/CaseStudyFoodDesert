@@ -1,5 +1,5 @@
 ---
-title: "Food Deserts"
+title: "Food Desert"
 teaching: 100
 exercises: 5
 ---
@@ -67,6 +67,6 @@ Explore the metadata for the USDA Food Desert Excel file to understand what each
 
 | Lesson            | Overview                                                                                                   |
 |-------------------|------------------------------------------------------------------------------------------------------------|
-| [Beginner](https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/TIGER_FoodDesert_Tutorial.ipynb) | Learn how to visualize and work with tabular data downloaded from the USDA Food Access Research Atlas. |
+| <a href="https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/TIGER_FoodDesert_Tutorial.ipynb" target="_blank">Beginner</a> | Learn how to visualize and work with tabular data downloaded from the USDA Food Access Research Atlas. |
 | [Intermediate]()  | (To be added)                                                                                              |
-| [Expert](https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/Expert/Grided_LILA_Analysis_Comparison.ipynb) | Uses all the taught basic tutorials to perform a full spatial and network analysis of food deserts in Indiana. |
+| <a href="https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/Expert/Grided_LILA_Analysis_Comparison.ipynb" target="_blank">Expert</a> | Uses all the taught basic tutorials to perform a full spatial and network analysis of food deserts in Indiana. |
