@@ -253,6 +253,30 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="grocery-qfield.html">2. Grocery Access Part 1: Mapping Stores with QField</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="grocery-network.html">3. Grocery Access Part 2: Network Analysis in QGIS</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -342,6 +366,29 @@ data, with driving distances); they measure different things</li>
 <li>The Beginner notebook visualizes the published 2019 Atlas for any
 state; the Expert notebook reproduces the methodology from open data,
 validates it against the Atlas, and extends it to other years</li>
+</ul></section><section id="grocery-qfield"><h2 class="section-heading"><a href="grocery-qfield.html">Grocery Access Part 1: Mapping Stores with QField</a></h2>
+<hr class="half-width">
+<ul>
+<li>A clear scenario and a consistent schema make field data
+analyzable</li>
+<li>Prepare the project and form in QGIS before going out, and package
+it with QFieldSync</li>
+<li>Place points by a fixed rule, record GPS accuracy, and use “Unknown”
+instead of guessing</li>
+<li>Check the data in QGIS as soon as possible after collection</li>
+</ul></section><section id="grocery-network"><h2 class="section-heading"><a href="grocery-network.html">Grocery Access Part 2: Network Analysis in QGIS</a></h2>
+<hr class="half-width">
+<ul>
+<li>Grocery store points become far more useful for access questions
+when combined with a road network</li>
+<li>Reproject layers and set the project CRS to a projected system so
+that costs are in meters</li>
+<li>Shortest path tools compare routes; service area tools show which
+streets are within reach</li>
+<li>Network distance is longer than straight-line distance, sometimes by
+much more than expected</li>
+<li>Clipping a network to an irregular boundary can break routes; check
+for unreachable destinations</li>
 </ul></section>
 </div>
     </main>
@@ -386,7 +433,7 @@ validates it against the Atlas, and extends it to other years</li>
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science",
+  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, network analysis, QGIS, QField, Python, GIS, social science",
   "name": "Key Points",
   "creativeWorkStatus": "active",
   "url": "https://SpatialTurn.github.io/CaseStudyFoodDesert/key-points.html",

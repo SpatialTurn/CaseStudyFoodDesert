@@ -253,6 +253,30 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="grocery-qfield.html">2. Grocery Access Part 1: Mapping Stores with QField</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="grocery-network.html">3. Grocery Access Part 2: Network Analysis in QGIS</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -327,7 +351,7 @@
         <h1>Instructor Notes</h1>
         
 
-<section><h2 class="section-heading" id="overall-approach">Overall approach<a class="anchor" aria-label="anchor" href="#overall-approach"></a>
+<section><h2 class="section-heading" id="food-deserts-overall-approach">Food deserts: overall approach<a class="anchor" aria-label="anchor" href="#food-deserts-overall-approach"></a>
 </h2>
 <hr class="half-width">
 <ul>
@@ -341,7 +365,7 @@ empty by default, and the Census API refuses requests without a
 key.</li>
 <li>The Data Collection module’s Census notebooks (boundaries, the
 Census API and joining tables to maps) are good preparation.</li>
-</ul></section><section><h2 class="section-heading" id="teaching-tips">Teaching tips<a class="anchor" aria-label="anchor" href="#teaching-tips"></a>
+</ul></section><section><h2 class="section-heading" id="food-deserts-teaching-tips">Food deserts: teaching tips<a class="anchor" aria-label="anchor" href="#food-deserts-teaching-tips"></a>
 </h2>
 <hr class="half-width">
 <ul>
@@ -358,6 +382,35 @@ so it usually shows less “low access”, and the two are not directly
 comparable.</li>
 <li>Discuss limitations openly: straight-line distance, the store list,
 food prices and quality, and the “food swamp” critique.</li>
+</ul></section><section><h2 class="section-heading" id="grocery-access-parts-1-and-2">Grocery access (Parts 1 and 2)<a class="anchor" aria-label="anchor" href="#grocery-access-parts-1-and-2"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>The two parts share one example: grocery stores in Lafayette and
+West Lafayette, Indiana. Part 1 is a <strong>demonstration</strong> of a
+QField project; Part 2 is hands-on in QGIS. Suggested timing: Part 1
+about 45 minutes, Part 2 about 75 minutes.</li>
+<li>Part 1: if time and devices allow, a short walk to map a few campus
+locations with a prepared QField project makes it memorable.</li>
+<li>Part 2: the most important setting is the <strong>project
+CRS</strong> (EPSG:26916). If learners see costs around 0.04, their
+project is still in EPSG:4326.</li>
+<li>Do <strong>not</strong> clip the roads to the city limits; the
+episode shows why. All 17 supermarkets are reachable with the provided
+road layer.</li>
+<li>With the full layer, routes from the Purdue Memorial Union to the 17
+supermarkets average about 5.7 km by road against 5.0 km in a straight
+line. About 11% of city street length is within 800 m of a supermarket
+along the network, and about 40% within 1,600 m.</li>
+<li>The grocery store data comes from OpenStreetMap (October 2026) and
+is not field verified; say so when presenting results.</li>
+<li>The case pairs well with the food desert episode: the USDA uses
+straight-line distance, and Part 2 shows how much longer real routes
+are.</li>
+<li>The Data Collection module’s Census episode (notebook 1c) makes the
+map of households without a car used in Part 2, Step 9. The Data
+Analysis module’s Network Analysis episode does the same kind of
+analysis in Python with OSMnx.</li>
 </ul></section><section><h2 class="section-heading" id="common-problems">Common problems<a class="anchor" aria-label="anchor" href="#common-problems"></a>
 </h2>
 <hr class="half-width">
@@ -394,6 +447,21 @@ strings, padded to 11 characters</td>
 <td>OpenStreetMap request fails or times out</td>
 <td>The Overpass server is busy</td>
 <td>Wait a minute and rerun the cell</td>
+</tr>
+<tr>
+<td>Network costs are tiny (about 0.04)</td>
+<td>Project CRS is EPSG:4326</td>
+<td>Set the project CRS to EPSG:26916</td>
+</tr>
+<tr>
+<td>Some routes have a NULL cost</td>
+<td>Network broken, often by clipping</td>
+<td>Use the full road layer</td>
+</tr>
+<tr>
+<td>A web layer loads but nothing appears</td>
+<td>Off screen or under another layer</td>
+<td>Right-click &gt; <strong>Zoom to Layer</strong>; reorder layers</td>
 </tr>
 </tbody>
 </table>
@@ -444,7 +512,7 @@ Add reference-style links below as needed.
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science",
+  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, network analysis, QGIS, QField, Python, GIS, social science",
   "name": "Instructor Notes",
   "creativeWorkStatus": "active",
   "url": "https://SpatialTurn.github.io/CaseStudyFoodDesert/instructor-notes.html",

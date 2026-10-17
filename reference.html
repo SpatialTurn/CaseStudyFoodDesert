@@ -211,6 +211,24 @@
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="grocery-qfield.html">2. Grocery Access Part 1: Mapping Stores with QField</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="grocery-network.html">3. Grocery Access Part 2: Network Analysis in QGIS</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -296,6 +314,12 @@
 A small census area of about 1,200 to 8,000 people (4,000 on average).
 The unit used by the Food Access Research Atlas.
 </dd>
+<dt>Coordinate reference system (CRS)</dt>
+<dd>
+The system that links map coordinates to places on Earth, identified by
+an EPSG code such as EPSG:4326 (latitude and longitude) or EPSG:26916
+(UTM zone 16N, in meters).
+</dd>
 <dt>Food Access Research Atlas</dt>
 <dd>
 The USDA Economic Research Service’s tract-level data on food access. In
@@ -345,6 +369,11 @@ A tract with a poverty rate of at least 20 percent, or a median family
 income at or below 80 percent of the state (or metropolitan area)
 median.
 </dd>
+<dt>Network analysis</dt>
+<dd>
+Analysis of movement along a network, such as roads, for example finding
+shortest paths or service areas.
+</dd>
 <dt>New Markets Tax Credit (NMTC)</dt>
 <dd>
 A U.S. Treasury program whose definition of a low-income community is
@@ -353,7 +382,23 @@ used for the “low income” part of LILA.
 <dt>OpenStreetMap</dt>
 <dd>
 A free, volunteer-built map of the world. The Expert notebook uses it
-for supermarket locations.
+for supermarket locations, and the grocery access case study’s store
+points come from it.
+</dd>
+<dt>QField</dt>
+<dd>
+A free, open source app for collecting field data on phones and tablets,
+using projects prepared in QGIS.
+</dd>
+<dt>Service area</dt>
+<dd>
+The part of a network that can be reached from a starting point within a
+given distance or time.
+</dd>
+<dt>Shortest path</dt>
+<dd>
+The route between two points along a network with the lowest total
+distance (or time).
 </dd>
 <dt>SNAP</dt>
 <dd>
@@ -380,6 +425,9 @@ ERS: Food Access Research Atlas</a></li>
 ERS: Food Access Research Atlas documentation</a></li>
 <li><a href="https://www.ers.usda.gov/data-products/food-access-research-atlas/update-and-revision-history" class="external-link">USDA
 ERS: update and revision history</a></li>
+<li><a href="https://docs.qfield.org/" class="external-link">QField documentation</a></li>
+<li><a href="https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/networkanalysis.html" class="external-link">QGIS
+documentation: network analysis tools</a></li>
 </ul><!--
 Links listed here can be reused across pages as [text][name].
 Add reference-style links below as needed.
@@ -432,7 +480,7 @@ Add reference-style links below as needed.
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science",
+  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, network analysis, QGIS, QField, Python, GIS, social science",
   "name": "Reference",
   "creativeWorkStatus": "active",
   "url": "https://SpatialTurn.github.io/CaseStudyFoodDesert/reference.html",
