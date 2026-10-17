@@ -2,7 +2,7 @@
 
 Source for the **Case Studies** module of
 [Enabling the Geospatial Turn in the Social Sciences](https://spatialturn.github.io/),
-published at <https://spatialturn.github.io/CaseStudyFoodDesert/>.
+published at <https://spatialturn.github.io/CaseStudies/>.
 
 The lesson is built with [The Carpentries Workbench](https://carpentries.github.io/sandpaper-docs/).
 
@@ -30,7 +30,7 @@ All data is read from the web while the notebooks run:
 ### Grocery access
 
 The case study was moved here from the Data Collection module in October 2026. QGIS reads these files from
-`https://raw.githubusercontent.com/SpatialTurn/CaseStudyFoodDesert/main/data/<file>`.
+`https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/<file>`.
 
 | File | Contents | Source |
 |---|---|---|

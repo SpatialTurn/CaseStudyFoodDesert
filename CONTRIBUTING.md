@@ -12,13 +12,13 @@ Everyone involved agrees to follow our [code of conduct](CODE_OF_CONDUCT.md).
 The easiest way to help is to tell us about a mistake, a broken link, a notebook that no longer runs,
 or something that was hard to follow.
 
-- **With a GitHub account:** [open an issue](https://github.com/SpatialTurn/CaseStudyFoodDesert/issues). Please include the page or notebook
+- **With a GitHub account:** [open an issue](https://github.com/SpatialTurn/CaseStudies/issues). Please include the page or notebook
   name and, for errors, what you ran and the message you saw.
 - **Without a GitHub account:** email [ilindsay@purdue.edu](mailto:ilindsay@purdue.edu).
 
 ### Proposing a change
 
-1. Fork [the repository](https://github.com/SpatialTurn/CaseStudyFoodDesert) and make your change on a new branch.
+1. Fork [the repository](https://github.com/SpatialTurn/CaseStudies) and make your change on a new branch.
 2. Lesson pages live in `episodes/`; setup and glossary pages in `learners/`; notes for teachers in
    `instructors/`.
 3. Open a pull request describing what you changed and why. The website rebuilds automatically
@@ -35,5 +35,5 @@ or something that was hard to follow.
 
 The site is built with [The Carpentries Workbench](https://carpentries.github.io/sandpaper-docs/).
 
-[repo]: https://github.com/SpatialTurn/CaseStudyFoodDesert
-[repo_issues]: https://github.com/SpatialTurn/CaseStudyFoodDesert/issues
+[repo]: https://github.com/SpatialTurn/CaseStudies
+[repo_issues]: https://github.com/SpatialTurn/CaseStudies/issues
