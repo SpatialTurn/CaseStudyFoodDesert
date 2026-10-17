@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Lesson Title: All in One View</title>
+<title>Case Studies in Geospatial Social Science: All in One View</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -41,15 +41,15 @@
     <div class="col-md-8">
       <div class="large-logo">
         <a href="index.html">
-        <img id="incubator-logo" alt="Lesson Description" src="assets/images/incubator-logo.svg"></a>
+        <img id="incubator-logo" alt="Case Studies in Geospatial Social Science" src="assets/images/incubator-logo.svg"></a>
 
-        <span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -100,10 +100,10 @@
     </button>
     <div class="nav-logo">
       <a href="index.html">
-      <img class="small-logo" alt="Lesson Description" src="assets/images/incubator-logo-sm.svg"></a>
+      <img class="small-logo" alt="Case Studies in Geospatial Social Science" src="assets/images/incubator-logo-sm.svg"></a>
     </div>
     <div class="lesson-title-md">
-      Lesson Title
+      Case Studies in Geospatial Social Science
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -114,7 +114,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Lesson Title
+            Case Studies in Geospatial Social Science
           </span>
         </li>
         <li class="nav-item">
@@ -244,7 +244,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Food Desert</a>
+        <a href="introduction.html">1. Case Study: Food Deserts</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -326,11 +326,11 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>All in One View</h1>
         
-<section id="aio-introduction"><p>Content from <a href="introduction.html">Food Desert</a></p>
+<section id="aio-introduction"><p>Content from <a href="introduction.html">Case Study: Food Deserts</a></p>
 <hr>
-<p>Last updated on 2026-07-19 |
+<p>Last updated on 2026-10-17 |
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -344,7 +344,8 @@
 <ul>
 <li>What is a food desert, and how does the USDA formally define
 one?</li>
-<li>Where can we find data on food deserts in the U.S.?</li>
+<li>Where can we find data on food deserts in the U.S., and how has that
+data changed?</li>
 <li>How can you visualize and reproduce the food desert analysis for
 your region of interest?</li>
 </ul>
@@ -401,10 +402,14 @@ tract” mean the same thing.</p>
 </h2>
 <hr class="half-width">
 <p>In the 2008 Farm Bill, Congress directed the USDA to study food
-access nationwide. The result was the Food Desert Locator in 2011,
-expanded into the <strong>Food Access Research Atlas</strong> in 2013,
-with updates for 2015 and 2019. The 2019 release is the most recent,
-which matters later in this lesson.</p>
+access nationwide. The USDA’s Economic Research Service (ERS) released
+the Food Desert Locator in 2011, which became the <strong>Food Access
+Research Atlas</strong> in 2013. The Atlas was updated with data for
+2015 (released in 2017) and 2019 (released in 2021). In July 2026 the
+ERS renamed that atlas the <strong>Large Retailer Access Map</strong>
+and added a second map built on newer data (see “The 2026 update”
+below). The rest of this section describes the original method, which is
+the one the notebooks in this lesson use.</p>
 <p>The Atlas works at the level of the <strong>census tract</strong>, a
 statistical neighborhood of roughly 4,000 people. Each tract is
 evaluated on both conditions:</p>
@@ -414,14 +419,16 @@ least 20 percent, or its median family income is at or below 80 percent
 of the statewide median, or, for tracts inside a metropolitan area, at
 or below 80 percent of the metro area median.</p>
 <p><strong>Low access</strong> is measured by distance to the nearest
-supermarket. The USDA overlays the country with a grid of half kilometer
-cells, estimates the population of each cell, and measures the straight
-line distance from each cell to the nearest store. A tract is low access
-if at least 500 people, or at least a third of the population, live
-beyond a distance threshold. Because “far” means something different in
-a city than in the countryside, the threshold depends on whether the
-tract is urban or rural. The Atlas publishes several combinations rather
-than one official answer:</p>
+supermarket, supercenter or large grocery store. Convenience stores,
+dollar stores, drug stores and warehouse clubs do not count, because
+they rarely stock a full range of fresh food. The USDA overlays the
+country with a grid of half kilometer cells, estimates the population of
+each cell, and measures the straight line distance from each cell to the
+nearest store. A tract is low access if at least 500 people, or at least
+a third of the population, live beyond a distance threshold. Because
+“far” means something different in a city than in the countryside, the
+threshold depends on whether the tract is urban or rural. The Atlas
+publishes several combinations rather than one official answer:</p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -451,8 +458,10 @@ than one official answer:</p>
 </tr>
 <tr>
 <td>Vehicle based</td>
-<td>no car and more than half a mile</td>
-<td>more than 20 miles for anyone</td>
+<td>at least 100 households with no vehicle live more than half a mile
+away</td>
+<td>at least 500 people, or a third of residents, live more than 20
+miles away</td>
 </tr>
 </tbody>
 </table>
@@ -460,12 +469,71 @@ than one official answer:</p>
 by car and a serious barrier on foot with grocery bags, so households
 without vehicles face low access at much shorter distances.</p>
 <p>These definitions have limitations worth keeping in mind. Straight
-line distance ignores rivers, highways, and transit routes. The store
-list counts supermarkets but says nothing about prices or food quality,
-and some researchers argue the bigger problem in many neighborhoods is a
-“food swamp”, an abundance of fast food and convenience stores rather
-than an absence of anything. Treating the Atlas as a starting point for
-questions, not a final verdict, is good practice.</p>
+line distance ignores rivers, highways, and transit routes (the network
+analysis episode of the Data Collection module shows how much longer
+real routes can be). The store list counts supermarkets but says nothing
+about prices or food quality, and some researchers argue the bigger
+problem in many neighborhoods is a “food swamp”, an abundance of fast
+food and convenience stores rather than an absence of anything. Treating
+the Atlas as a starting point for questions, not a final verdict, is
+good practice.</p>
+</section><section><h2 class="section-heading" id="the-2026-update-two-maps">The 2026 update: two maps<a class="anchor" aria-label="anchor" href="#the-2026-update-two-maps"></a>
+</h2>
+<hr class="half-width">
+<p>In July 2026 the ERS reorganized the Food Access Research Atlas into
+two maps:</p>
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th></th>
+<th>Large Retailer Access Map (LRAM)</th>
+<th>SNAP-Authorized Retailer Access Map (SRAM)</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>What it is</td>
+<td>The original Atlas, renamed</td>
+<td>A new map, first released in July 2026</td>
+</tr>
+<tr>
+<td>Stores counted</td>
+<td>Supermarkets, supercenters and large grocery stores</td>
+<td>All brick-and-mortar stores authorized to accept SNAP benefits
+(excluding farmers markets and delivery routes)</td>
+</tr>
+<tr>
+<td>Store data</td>
+<td>2019</td>
+<td>2025</td>
+</tr>
+<tr>
+<td>Census tracts</td>
+<td>2010 boundaries</td>
+<td>2020 boundaries</td>
+</tr>
+<tr>
+<td>Distance</td>
+<td>Straight line</td>
+<td>Straight line, plus driving distance along the road network</td>
+</tr>
+<tr>
+<td>Next update</td>
+<td>Expected winter 2026 to 2027</td>
+<td>Updated as needed</td>
+</tr>
+</tbody>
+</table>
+<p>Because the SRAM counts every SNAP-authorized store, including many
+smaller shops, it answers a different question from the LRAM: access to
+<em>any</em> store that accepts SNAP, rather than access to a large,
+full-service store. The two maps are not directly comparable, so always
+say which one you use. The notebooks in this lesson use the 2019 LRAM
+data, which is still the ERS’s measure of access to large food
+retailers.</p>
 </section><section><h2 class="section-heading" id="the-data-we-work-with">The Data We Work With<a class="anchor" aria-label="anchor" href="#the-data-we-work-with"></a>
 </h2>
 <hr class="half-width">
@@ -514,25 +582,95 @@ code, so the same notebook runs for any state.</p>
 <p>Working with the published Atlas has two limits, and they motivate
 the second notebook. First, the Atlas is a finished product: you cannot
 ask it what happens with a different store list, a different threshold,
-or a different year. Second, its most recent release describes 2019, and
-the food landscape has changed since then.</p>
+or a different year. Second, its large-retailer data still describes
+2019, and the food landscape has changed since then.</p>
 <p>The
 <a href="https://colab.research.google.com/github/SpatialTurn/DataCollection-Notebooks/blob/main/Census/Food_Desert_Analysis_Automated.ipynb" target="_blank" class="external-link"><strong>Expert
 notebook</strong></a> therefore rebuilds the entire analysis from raw
 ingredients. Income, poverty, population, and vehicle data come from the
-Census API. Supermarket locations come from OpenStreetMap, pinned to a
-chosen date so the store data matches the analysis year. The notebook
-constructs the same half kilometer grid the USDA uses, allocates
-population to it, computes distances, and applies the LILA rules exactly
-as defined above. Crucially, it then validates itself: it reads the
-official 2019 Atlas and reports, tract by tract, how closely the open
-data reproduction matches the USDA’s proprietary one. Once validated,
-the same pipeline can compute food access for years the USDA never
-published, turning a static 2019 snapshot into an instrument for
-studying change over time.</p>
+Census API, so you need your own free Census API key (see Setup).
+Supermarket locations come from OpenStreetMap, pinned to a chosen date
+so the store data matches the analysis year. The notebook constructs the
+same half kilometer grid the USDA uses, allocates population to it,
+computes distances, and applies the LILA rules exactly as defined above.
+Crucially, it then validates itself: it reads the official 2019 Atlas
+and reports, tract by tract, how closely the open data reproduction
+matches the USDA’s own result, which relies on a commercial store list
+that is not public. Once validated, the same pipeline can compute food
+access for years the USDA never published, turning a static 2019
+snapshot into an instrument for studying change over time.</p>
 <p>Complete the Beginner notebook first. The concepts it introduces,
 tracts, joins, LILA flags, and choropleth maps, are exactly the
 vocabulary the Expert notebook builds on.</p>
+<div id="which-definition" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="which-definition" class="callout-inner">
+<h3 class="callout-title">Which definition?</h3>
+<div class="callout-content">
+<p>A city council asks you to map food deserts so it can decide where to
+fund a new grocery store. Many residents of one neighborhood are older
+adults without cars, and the nearest supermarket is 0.8 miles away.
+Which LILA measure would flag this neighborhood, and which would miss
+it?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>The <strong>standard</strong> measure (1 mile in urban areas) would
+miss it, because 0.8 miles is under the threshold. The <strong>strict
+urban</strong> measure (half a mile) would flag it if enough residents
+live beyond half a mile. The <strong>vehicle based</strong> measure
+would flag it if at least 100 households without a vehicle live more
+than half a mile from the store. The choice of measure is a policy
+decision as much as a technical one, which is why the Atlas publishes
+several.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="explore-your-own-state" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="explore-your-own-state" class="callout-inner">
+<h3 class="callout-title">Explore your own state</h3>
+<div class="callout-content">
+<p>Run the Beginner notebook for your home state (or Indiana) by
+changing the state FIPS code. Which of the four LILA measures flags the
+most tracts, and which the fewest? Why?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Some answers follow from the definitions. The <strong>strict
+urban</strong> measure (half a mile and 10 miles) can never flag fewer
+tracts than the <strong>standard</strong> measure (1 mile and 10 miles),
+because its urban bar for “far” is lower, and in most states it flags
+the most. The <strong>strict rural</strong> measure (1 mile and 20
+miles) can never flag more tracts than the standard one, because its
+rural bar is higher. The <strong>vehicle based</strong> measure follows
+its own logic, so compare it on the map: it tends to pick out city
+neighborhoods where many households have no car.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section><h2 class="section-heading" id="what-can-this-analysis-be-used-for">What Can This Analysis Be Used For?<a class="anchor" aria-label="anchor" href="#what-can-this-analysis-be-used-for"></a>
 </h2>
 <hr class="half-width">
@@ -569,6 +707,9 @@ measures rather than one official definition, and the choice of measure
 changes the map</li>
 <li>The Atlas data supports policy analysis, site selection for new
 grocery stores, and spatial analysis of transportation networks</li>
+<li>In July 2026 the Atlas became two maps: the Large Retailer Access
+Map (2019 data) and the new SNAP-Authorized Retailer Access Map (2025
+data, with driving distances); they measure different things</li>
 <li>The Beginner notebook visualizes the published 2019 Atlas for any
 state; the Expert notebook reproduces the methodology from open data,
 validates it against the Atlas, and extends it to other years</li>
@@ -577,9 +718,9 @@ validates it against the Atlas, and extends it to other years</li>
 </div>
 </div>
 <!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
+Links listed here can be reused across pages as [text][name].
+Add reference-style links below as needed.
+-->
 </section></section>
 </div>
     </main>
@@ -593,14 +734,14 @@ any links that you are not going to use.
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/README.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/edit/main/README.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
+        | <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/" class="external-link">Source</a></p>
         <p>
         <a href="citation.html">Cite</a>
-        | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="mailto:ilindsay@purdue.edu">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 		</div>
 		<div class="col-md-6">
 
@@ -620,18 +761,18 @@ any links that you are not going to use.
     {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "@id": "https://carpentries.github.io/workbench-template-md/aio.html",
+  "@id": "https://SpatialTurn.github.io/CaseStudyFoodDesert/aio.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "software, data, lesson, The Carpentries",
+  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science",
   "name": "All in One View",
   "creativeWorkStatus": "active",
-  "url": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
-  "dateCreated": "2026-07-19",
-  "dateModified": "2026-10-13",
-  "datePublished": "2026-10-13"
+  "url": "https://SpatialTurn.github.io/CaseStudyFoodDesert/aio.html",
+  "identifier": "https://SpatialTurn.github.io/CaseStudyFoodDesert/aio.html",
+  "dateCreated": "2025-07-23",
+  "dateModified": "2026-10-17",
+  "datePublished": "2026-10-17"
 }
 
   </script><script>

@@ -15,32 +15,32 @@
 carpentry: 'incubator'
 
 # Alt-text description of the lesson.
-carpentry_description: 'Lesson Description'
+carpentry_description: 'Case Studies in Geospatial Social Science'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'Case Studies in Geospatial Social Science'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: '2025-07-23'
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson, The Carpentries' # FIXME
+keywords: 'food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'alpha'
 
 # License of the lesson
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/carpentries/workbench-template-md' # FIXME
+source: 'https://github.com/SpatialTurn/CaseStudyFoodDesert'
 
 # Default branch of your lesson
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org' # FIXME
+contact: 'ilindsay@purdue.edu'
 
 # Navigation ------------------------------------------------
 #
@@ -70,16 +70,19 @@ episodes:
 
 # Information for Learners
 learners: 
+- setup.md
+- reference.md
 
 # Information for Instructors
 instructors: 
+- instructor-notes.md
 
 # Learner Profiles
 profiles: 
+- learner-profiles.md
 
 # Customisation ---------------------------------------------
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
-custom_css: assets/css/custom.css
 

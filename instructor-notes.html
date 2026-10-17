@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Lesson Title: Instructor Notes</title>
+<title>Case Studies in Geospatial Social Science: Instructor Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -41,15 +41,15 @@
     <div class="col-md-8">
       <div class="large-logo">
         <a href="index.html">
-        <img id="incubator-logo" alt="Lesson Description" src="assets/images/incubator-logo.svg"></a>
+        <img id="incubator-logo" alt="Case Studies in Geospatial Social Science" src="assets/images/incubator-logo.svg"></a>
 
-        <span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <span class="badge text-bg-warning">
+          <abbr title="This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
+              Alpha
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the alpha phase, which means that it has been taught once and lesson authors are iterating on feedback.</span>
           </abbr>
         </span>
 
@@ -100,10 +100,10 @@
     </button>
     <div class="nav-logo">
       <a href="index.html">
-      <img class="small-logo" alt="Lesson Description" src="assets/images/incubator-logo-sm.svg"></a>
+      <img class="small-logo" alt="Case Studies in Geospatial Social Science" src="assets/images/incubator-logo-sm.svg"></a>
     </div>
     <div class="lesson-title-md">
-      Lesson Title
+      Case Studies in Geospatial Social Science
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -114,7 +114,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Lesson Title
+            Case Studies in Geospatial Social Science
           </span>
         </li>
         <li class="nav-item">
@@ -244,7 +244,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Food Desert</a>
+        <a href="introduction.html">1. Case Study: Food Deserts</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -327,14 +327,80 @@
         <h1>Instructor Notes</h1>
         
 
-<p>This is a placeholder file. Please add content here.</p>
+<section><h2 class="section-heading" id="overall-approach">Overall approach<a class="anchor" aria-label="anchor" href="#overall-approach"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>The food desert case study has a short reading part (the concept,
+the USDA method and its limitations) and two notebooks. The Beginner
+notebook takes about 30 to 45 minutes; the Expert notebook is longer and
+works best as a guided demonstration or take-home exercise.</li>
+<li>Ask learners to request and <strong>activate</strong> a Census API
+key before the session. The Expert notebook’s <code>API_KEY</code> is
+empty by default, and the Census API refuses requests without a
+key.</li>
+<li>The Data Collection module’s Census notebooks (boundaries, the
+Census API and joining tables to maps) are good preparation.</li>
+</ul></section><section><h2 class="section-heading" id="teaching-tips">Teaching tips<a class="anchor" aria-label="anchor" href="#teaching-tips"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>Start by asking learners how <em>they</em> would define a food
+desert. Then show how many choices the USDA has to make: which stores
+count, how far is “far”, urban or rural, and whether car ownership
+matters.</li>
+<li>Compare the four LILA maps from the Beginner notebook side by side;
+the change between measures is the main lesson.</li>
+<li>Mention the <strong>July 2026 update</strong>: the Atlas is now two
+maps. The notebooks use the 2019 Large Retailer Access Map data. The new
+SNAP-Authorized Retailer Access Map counts many more (smaller) stores,
+so it usually shows less “low access”, and the two are not directly
+comparable.</li>
+<li>Discuss limitations openly: straight-line distance, the store list,
+food prices and quality, and the “food swamp” critique.</li>
+</ul></section><section><h2 class="section-heading" id="common-problems">Common problems<a class="anchor" aria-label="anchor" href="#common-problems"></a>
+</h2>
+<hr class="half-width">
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>The Atlas cell is slow</td>
+<td>The USDA spreadsheet is large</td>
+<td>Wait a few minutes; this is normal</td>
+</tr>
+<tr>
+<td>Census API errors in the Expert notebook</td>
+<td>
+<code>API_KEY</code> empty, mistyped or not activated</td>
+<td>Paste the key and check its activation email</td>
+</tr>
+<tr>
+<td>The join produces no matches</td>
+<td>Tract IDs stored as numbers</td>
+<td>Convert both <code>GEOID</code> and <code>CensusTract</code> to
+strings, padded to 11 characters</td>
+</tr>
+<tr>
+<td>OpenStreetMap request fails or times out</td>
+<td>The Overpass server is busy</td>
+<td>Wait a minute and rerun the cell</td>
+</tr>
+</tbody>
+</table>
 <!--
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use.
- -->
-
-
-      <section id="aggregate-instructor-notes"></section>
+Links listed here can be reused across pages as [text][name].
+Add reference-style links below as needed.
+--></section><section id="aggregate-instructor-notes"></section>
 </div>
     </main>
 </div>
@@ -347,14 +413,14 @@ any links that you are not going to use.
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/README.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/edit/main/README.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
+        | <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/SpatialTurn/CaseStudyFoodDesert/" class="external-link">Source</a></p>
         <p>
         <a href="citation.html">Cite</a>
-        | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="mailto:ilindsay@purdue.edu">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 		</div>
 		<div class="col-md-6">
 
@@ -374,18 +440,18 @@ any links that you are not going to use.
     {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "@id": "https://carpentries.github.io/workbench-template-md/instructor-notes.html",
+  "@id": "https://SpatialTurn.github.io/CaseStudyFoodDesert/instructor-notes.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "software, data, lesson, The Carpentries",
+  "keywords": "food deserts, food access, case study, USDA Food Access Research Atlas, Census, OpenStreetMap, Python, GIS, social science",
   "name": "Instructor Notes",
   "creativeWorkStatus": "active",
-  "url": "https://carpentries.github.io/workbench-template-md/instructor-notes.html",
-  "identifier": "https://carpentries.github.io/workbench-template-md/instructor-notes.html",
-  "dateCreated": "2026-07-19",
-  "dateModified": "2026-10-13",
-  "datePublished": "2026-10-13"
+  "url": "https://SpatialTurn.github.io/CaseStudyFoodDesert/instructor-notes.html",
+  "identifier": "https://SpatialTurn.github.io/CaseStudyFoodDesert/instructor-notes.html",
+  "dateCreated": "2025-07-23",
+  "dateModified": "2026-10-17",
+  "datePublished": "2026-10-17"
 }
 
   </script><script>
