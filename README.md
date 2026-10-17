@@ -10,13 +10,15 @@ The lesson is built with [The Carpentries Workbench](https://carpentries.github.
 
 | Episode file | Case study | Notebooks |
 |---|---|---|
-| `episodes/introduction.md` | Food deserts: the USDA low-income, low-access (LILA) measure | `TIGER_FoodDesert_Tutorial.ipynb` (Beginner) and `Food_Desert_Analysis_Automated.ipynb` (Expert), in [DataCollection-Notebooks](https://github.com/SpatialTurn/DataCollection-Notebooks/tree/main/Census) |
+| `episodes/introduction.md` | Food deserts: the USDA low-income, low-access (LILA) measure | `notebooks/TIGER_FoodDesert_Tutorial.ipynb` (Beginner) and `notebooks/Food_Desert_Analysis_Automated.ipynb` (Expert) |
 | `episodes/grocery-qfield.md` | Grocery access, Part 1: mapping grocery stores with QField (demonstration) | None (QGIS loads `data/grocery_stores.geojson` by URL) |
 | `episodes/grocery-network.md` | Grocery access, Part 2: shortest paths and service areas in QGIS | None (QGIS loads the three files in `data/` by URL) |
 
 ### Data used by the notebooks
 
 ### Food deserts
+
+The two notebooks moved here from the retired DataCollection-Notebooks repository in October 2026.
 
 All data is read from the web while the notebooks run:
 

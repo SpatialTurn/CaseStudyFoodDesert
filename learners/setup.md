@@ -61,7 +61,7 @@ If you would rather run the notebooks on your own computer:
 pip install jupyterlab pandas geopandas matplotlib openpyxl scipy requests
 ```
 
-3. Download the two notebooks from the `Census` folder of the [DataCollection-Notebooks repository](https://github.com/SpatialTurn/DataCollection-Notebooks/tree/main/Census).
+3. Download the two notebooks from the `notebooks` folder of [this lesson's repository](https://github.com/SpatialTurn/CaseStudyFoodDesert/tree/main/notebooks).
 4. Start JupyterLab with `jupyter lab`, open a notebook, and run cells with **Shift + Enter**.
 
 ::::::::::::::::::::::::
