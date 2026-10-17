@@ -68,17 +68,8 @@ pip install jupyterlab pandas geopandas matplotlib openpyxl scipy requests
 
 ## Grocery access case study: QGIS
 
-**QGIS** is a free, open source Geographic Information System for viewing, analyzing and mapping spatial data.
-
-1. Go to <https://qgis.org> and click **Download**.
-2. Choose the **Long Term Release (LTR)** version, the most stable one.
-   - **Windows:** the standalone installer (`.msi`)
-   - **macOS:** the macOS installer (`.dmg`). The first time you open QGIS, you may need to right-click the
-     app and choose **Open** to get past the security warning.
-   - **Linux:** follow the instructions for your distribution on the QGIS download page
-3. Run the installer and keep the default settings, then open **QGIS Desktop**.
-
-If you are new to QGIS, the Data Visualization module's "Getting Started with QGIS" episode introduces the
+Install **QGIS** (the free Long Term Release) by following the [central Setup page](https://spatialturn.github.io/Foundations/learners/setup.html) of the
+Foundations module. If you are new to QGIS, its [Getting Started with QGIS](https://spatialturn.github.io/Foundations/qgisintro.html) episode introduces the
 interface.
 
 ### Loading the lesson data in QGIS
