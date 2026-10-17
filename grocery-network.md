@@ -71,9 +71,9 @@ them in the field first.
 4. Paste the first address into **URI**, click **Add**, and repeat for the other two:
 
    ```
-   https://raw.githubusercontent.com/SpatialTurn/CaseStudyFoodDesert/main/data/grocery_stores.geojson
-   https://raw.githubusercontent.com/SpatialTurn/CaseStudyFoodDesert/main/data/roads.geojson
-   https://raw.githubusercontent.com/SpatialTurn/CaseStudyFoodDesert/main/data/study_area.geojson
+   https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/grocery_stores.geojson
+   https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/roads.geojson
+   https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/study_area.geojson
    ```
 
 5. Click **Close**. In the **Layers** panel, drag `grocery_stores` to the top so the points draw above the

@@ -207,7 +207,7 @@ This is the foundation you need before any food desert mapping begins.
 The grocery stores used in the next episode came from OpenStreetMap. Open the file in QGIS
 (**Layer > Add Layer > Add Vector Layer**, **Protocol: HTTP(S), cloud, etc.**) with this address:
 
-`https://raw.githubusercontent.com/SpatialTurn/CaseStudyFoodDesert/main/data/grocery_stores.geojson`
+`https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/grocery_stores.geojson`
 
 Open its attribute table. Which fields from the schema above are present, and which would a field visit
 need to add?
