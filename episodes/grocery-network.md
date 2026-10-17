@@ -58,8 +58,8 @@ them in the field first.
 ## Before you begin
 
 - QGIS installed (see [Setup](../learners/setup.md))
-- Basic familiarity with the QGIS interface, for example from the Data Visualization module's
-  "Getting Started with QGIS" episode
+- Basic familiarity with the QGIS interface, for example from the Foundations module's
+  [Getting Started with QGIS](https://spatialturn.github.io/Foundations/qgisintro.html) episode
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

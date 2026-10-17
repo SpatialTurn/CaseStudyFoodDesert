@@ -23,8 +23,8 @@ More case studies will be added over time.
 - QGIS installed on your computer, for the grocery access case study (see Setup below)
 - Basic Python and pandas. The Data Collection module's Census notebooks are good preparation: they cover
   census tracts, GEOIDs and joining tables to maps.
-- For the grocery access case study: basic familiarity with QGIS, for example from the Data Visualization
-  module's "Getting Started with QGIS" episode
+- For the grocery access case study: basic familiarity with QGIS, for example from the Foundations
+  module's [Getting Started with QGIS](https://spatialturn.github.io/Foundations/qgisintro.html) episode
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
