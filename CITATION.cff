@@ -1,11 +1,5 @@
-# This template CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to replace its contents
-# with information about your lesson.
-# Remember to update this file periodically, 
-# ensuring that the author list and other fields remain accurate.
-
 cff-version: 1.2.0
-title: FIXME
+title: "Case Studies in Geospatial Social Science"
 message: >-
   Please cite this lesson using the information in this file
   when you refer to it in publications, and/or if you
@@ -13,10 +7,38 @@ message: >-
   training material.
 type: dataset
 authors:
-  - given-names: FIXME
-    family-names: FIXME
+  - given-names: Ian
+    family-names: Lindsay
+    affiliation: "Purdue University"
+  - given-names: Nicole
+    family-names: Kong
+    affiliation: "Purdue University"
+  - given-names: Innocensia
+    family-names: Owuor
+    affiliation: "Purdue University"
+  - given-names: Max
+    family-names: Gosch
+    affiliation: "Department of Anthropology, Purdue University"
+  - given-names: Aniket Dev
+    family-names: Roy
+    affiliation: "Purdue University Libraries and School of Information"
 abstract: >-
-  FIXME Replace this with a short abstract describing the
-  lesson, e.g. its target audience and main intended
-  learning objectives.
+  Case studies that apply GIS methods to social science questions. The first
+  case study, on food deserts, covers low-income, low-access (LILA) census
+  tracts, the USDA Food Access Research Atlas and its 2026 update, and two
+  Google Colab notebooks that map the published Atlas for any U.S. state and
+  rebuild the analysis from open Census and OpenStreetMap data.
+keywords:
+  - GIS
+  - case study
+  - food deserts
+  - food access
+  - USDA Food Access Research Atlas
+  - U.S. Census
+  - OpenStreetMap
+  - Python
+  - social science
+repository-code: "https://github.com/SpatialTurn/CaseStudyFoodDesert"
+url: "https://spatialturn.github.io/CaseStudyFoodDesert/"
 license: CC-BY-4.0
+date-released: "2025-07-23"
