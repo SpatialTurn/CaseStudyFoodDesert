@@ -51,7 +51,7 @@ The Atlas works at the level of the **census tract**, a statistical neighborhood
 
 The vehicle measure captures an important nuance: a mile is trivial by car and a serious barrier on foot with grocery bags, so households without vehicles face low access at much shorter distances.
 
-These definitions have limitations worth keeping in mind. Straight line distance ignores rivers, highways, and transit routes (the network analysis episode of the Data Collection module shows how much longer real routes can be). The store list counts supermarkets but says nothing about prices or food quality, and some researchers argue the bigger problem in many neighborhoods is a "food swamp", an abundance of fast food and convenience stores rather than an absence of anything. Treating the Atlas as a starting point for questions, not a final verdict, is good practice.
+These definitions have limitations worth keeping in mind. Straight line distance ignores rivers, highways, and transit routes (the [grocery access case study](grocery-network.md) in this module shows how much longer real routes can be). The store list counts supermarkets but says nothing about prices or food quality, and some researchers argue the bigger problem in many neighborhoods is a "food swamp", an abundance of fast food and convenience stores rather than an absence of anything. Treating the Atlas as a starting point for questions, not a final verdict, is good practice.
 
 ## The 2026 update: two maps
 

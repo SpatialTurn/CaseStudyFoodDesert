@@ -23,11 +23,14 @@ authors:
     family-names: Roy
     affiliation: "Purdue University Libraries and School of Information"
 abstract: >-
-  Case studies that apply GIS methods to social science questions. The first
-  case study, on food deserts, covers low-income, low-access (LILA) census
-  tracts, the USDA Food Access Research Atlas and its 2026 update, and two
-  Google Colab notebooks that map the published Atlas for any U.S. state and
-  rebuild the analysis from open Census and OpenStreetMap data.
+  Case studies that apply GIS methods to social science questions. The food
+  desert case study covers low-income, low-access (LILA) census tracts, the
+  USDA Food Access Research Atlas and its 2026 update, and two Google Colab
+  notebooks that map the published Atlas for any U.S. state and rebuild the
+  analysis from open Census and OpenStreetMap data. The grocery access case
+  study, set in Lafayette and West Lafayette, Indiana, demonstrates mapping
+  grocery stores in the field with QField and measures access along the road
+  network with shortest paths and service areas in QGIS.
 keywords:
   - GIS
   - case study
@@ -36,6 +39,9 @@ keywords:
   - USDA Food Access Research Atlas
   - U.S. Census
   - OpenStreetMap
+  - network analysis
+  - QGIS
+  - QField
   - Python
   - social science
 repository-code: "https://github.com/SpatialTurn/CaseStudyFoodDesert"

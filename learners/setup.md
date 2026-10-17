@@ -2,11 +2,13 @@
 title: Setup
 ---
 
-This lesson is designed to run in **Google Colab**, a free service that runs Jupyter notebooks in your browser. Nothing needs to be installed on your computer, and every dataset used in the lesson is fetched automatically by the notebooks themselves.
+The **food desert** case study runs in **Google Colab**, a free service that runs Jupyter notebooks in your browser. Nothing needs to be installed on your computer, and every dataset is fetched automatically by the notebooks themselves.
+
+The **grocery access** case study uses **QGIS**, a free desktop GIS. See [the last section](#grocery-access-case-study-qgis) of this page.
 
 ## Data Sets
 
-There is nothing to download before class. Both notebooks read their data directly from the source URLs while they run:
+There is nothing to download before class. Both food desert notebooks read their data directly from the source URLs while they run:
 
 - Census tract boundaries (TIGER/Line shapefiles) are read straight from the U.S. Census Bureau.
 - The USDA Food Access Research Atlas spreadsheet is read straight from the USDA ERS website.
@@ -63,3 +65,42 @@ pip install jupyterlab pandas geopandas matplotlib openpyxl scipy requests
 4. Start JupyterLab with `jupyter lab`, open a notebook, and run cells with **Shift + Enter**.
 
 ::::::::::::::::::::::::
+
+## Grocery access case study: QGIS
+
+**QGIS** is a free, open source Geographic Information System for viewing, analyzing and mapping spatial data.
+
+1. Go to <https://qgis.org> and click **Download**.
+2. Choose the **Long Term Release (LTR)** version, the most stable one.
+   - **Windows:** the standalone installer (`.msi`)
+   - **macOS:** the macOS installer (`.dmg`). The first time you open QGIS, you may need to right-click the
+     app and choose **Open** to get past the security warning.
+   - **Linux:** follow the instructions for your distribution on the QGIS download page
+3. Run the installer and keep the default settings, then open **QGIS Desktop**.
+
+If you are new to QGIS, the Data Visualization module's "Getting Started with QGIS" episode introduces the
+interface.
+
+### Loading the lesson data in QGIS
+
+Part 2 reads its three data files straight from this lesson's repository, so there is nothing to download:
+
+1. **Layer > Add Layer > Add Vector Layer**
+2. **Source Type**: **Protocol: HTTP(S), cloud, etc.**
+3. Paste the address given in the episode into **URI**, then click **Add**
+
+### QField (optional)
+
+Part 1 is a demonstration, so QField is not required. To try field data collection yourself:
+
+1. Install **QField** from <https://qfield.org/> (Android and iOS app stores, or Windows, macOS and Linux).
+2. In QGIS, install the **QFieldSync** plugin: **Plugins > Manage and Install Plugins**, search for
+   QFieldSync, and click **Install Plugin**.
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| QGIS will not open on macOS | Right-click the app, choose **Open**, then confirm |
+| A layer loaded from a web address shows nothing | Right-click the layer and choose **Zoom to Layer**; check that the address was pasted completely |
+| Network analysis costs look tiny (such as 0.04) | Set the project coordinate system to EPSG:26916 (bottom-right corner of the QGIS window) |
