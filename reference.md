@@ -8,6 +8,10 @@ Census tract
 :   A small census area of about 1,200 to 8,000 people (4,000 on average). The unit used by the Food Access
     Research Atlas.
 
+Coordinate reference system (CRS)
+:   The system that links map coordinates to places on Earth, identified by an EPSG code such as EPSG:4326
+    (latitude and longitude) or EPSG:26916 (UTM zone 16N, in meters).
+
 Food Access Research Atlas
 :   The USDA Economic Research Service's tract-level data on food access. In July 2026 it was reorganized into
     the Large Retailer Access Map and the SNAP-Authorized Retailer Access Map.
@@ -39,12 +43,27 @@ Low income
 :   A tract with a poverty rate of at least 20 percent, or a median family income at or below 80 percent of
     the state (or metropolitan area) median.
 
+Network analysis
+:   Analysis of movement along a network, such as roads, for example finding shortest paths or service
+    areas.
+
 New Markets Tax Credit (NMTC)
 :   A U.S. Treasury program whose definition of a low-income community is used for the "low income" part of
     LILA.
 
 OpenStreetMap
-:   A free, volunteer-built map of the world. The Expert notebook uses it for supermarket locations.
+:   A free, volunteer-built map of the world. The Expert notebook uses it for supermarket locations, and the
+    grocery access case study's store points come from it.
+
+QField
+:   A free, open source app for collecting field data on phones and tablets, using projects prepared in
+    QGIS.
+
+Service area
+:   The part of a network that can be reached from a starting point within a given distance or time.
+
+Shortest path
+:   The route between two points along a network with the lowest total distance (or time).
 
 SNAP
 :   The Supplemental Nutrition Assistance Program, the largest U.S. food assistance program.
@@ -63,3 +82,5 @@ Urban and rural tracts
 - [USDA ERS: Food Access Research Atlas](https://www.ers.usda.gov/data-products/food-access-research-atlas/)
 - [USDA ERS: Food Access Research Atlas documentation](https://www.ers.usda.gov/data-products/food-access-research-atlas/documentation)
 - [USDA ERS: update and revision history](https://www.ers.usda.gov/data-products/food-access-research-atlas/update-and-revision-history)
+- [QField documentation](https://docs.qfield.org/)
+- [QGIS documentation: network analysis tools](https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/networkanalysis.html)
