@@ -8,6 +8,6 @@
 "episodes/grocery-qfield.md" "0304ae5083fd8be69ed2e944c24d1521" "site/built/grocery-qfield.md" "2026-10-17"
 "episodes/grocery-network.md" "888b338f04213ab85f9538ae5f68d285" "site/built/grocery-network.md" "2026-10-17"
 "instructors/instructor-notes.md" "d66b97d002ee05048d092bfa2142dbe8" "site/built/instructor-notes.md" "2026-10-17"
-"learners/setup.md" "3f7a03d29209faf92c752e3f31c00bae" "site/built/setup.md" "2026-10-17"
+"learners/setup.md" "c2628dd46aa351554b3ad8a0f88243f6" "site/built/setup.md" "2026-10-17"
 "learners/reference.md" "ad5b21dee77ef51307d03a1fc5ef8031" "site/built/reference.md" "2026-10-17"
 "profiles/learner-profiles.md" "171483346244ba2dc48c16fb56ef97ae" "site/built/learner-profiles.md" "2026-10-17"
