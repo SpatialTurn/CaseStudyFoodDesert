@@ -76,8 +76,8 @@ answer (a **sensitivity analysis**).
 
 ## Hands-on
 
-These steps were checked in QGIS 4.0. They use the tools of the Data Analysis module's
-[Geoprocessing in QGIS](https://spatialturn.github.io/DataAnalysis/geoprocessing-qgis.html) episode and the
+These steps were checked in QGIS 4.0. They use the tools of the Data Processing module's
+[Geoprocessing in QGIS](https://spatialturn.github.io/DataProcessing/geoprocessing-qgis.html) episode and the
 Foundations module's [Tables, Joins and Selections](https://spatialturn.github.io/Foundations/qgis-tables.html)
 episode; look back there if a step is unfamiliar. The [Python version](park-access-python.md) of this case study
 reaches the same numbers.
