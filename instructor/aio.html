@@ -245,7 +245,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Case Study: Food Deserts</a>
+        <a href="park-access-python.html">1. Park Access in Lafayette (Python)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -257,7 +257,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="grocery-qfield.html">2. Grocery Access Part 1: Mapping Stores with QField</a>
+        <a href="park-access-qgis.html">2. Park Access in Lafayette (QGIS)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -269,7 +269,31 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="grocery-network.html">3. Grocery Access Part 2: Network Analysis in QGIS</a>
+        <a href="introduction.html">3. Case Study: Food Deserts</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="grocery-qfield.html">4. Grocery Access Part 1: Mapping Stores with QField</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="grocery-network.html">5. Grocery Access Part 2: Network Analysis in QGIS</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -352,7 +376,678 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>All in One View</h1>
         
-<section id="aio-introduction"><p>Content from <a href="introduction.html">Case Study: Food Deserts</a></p>
+<section id="aio-park-access-python"><p>Content from <a href="park-access-python.html">Park Access in Lafayette (Python)</a></p>
+<hr>
+<p>Last updated on 2026-10-20 |
+
+        <a href="https://github.com/SpatialTurn/CaseStudies/edit/main/episodes/park-access-python.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 75 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What share of residents, children and car-free households can walk
+to a public park in Lafayette and West Lafayette?</li>
+<li>Which neighborhoods have the least access?</li>
+<li>How much do the analyst’s decisions change the answer?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Turn a policy standard (the 10-minute walk) into a measurable
+definition of access</li>
+<li>Decide which features count as parks, and document the decision</li>
+<li>Estimate access for several population groups with buffers and areal
+weighting in GeoPandas</li>
+<li>Run a sensitivity analysis and state the limitations of a
+buffer-based measure</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="why-parks-and-why-walking-distance">Why parks, and why walking distance?<a class="anchor" aria-label="anchor" href="#why-parks-and-why-walking-distance"></a>
+</h2>
+<hr class="half-width">
+<p>Parks are linked to physical activity, mental health, cooler
+neighborhoods in heat waves and social contact. What matters for
+everyday use is <strong>proximity</strong>: many park visits, especially
+by children and older adults, are on foot, and households without a car
+cannot easily reach a park across town. Many cities therefore adopt a
+<strong>10-minute walk</strong> standard: every resident within about a
+half mile (<strong>800 m</strong>) of a park, the benchmark used by the
+Trust for Public Land’s ParkScore and by city park plans.</p>
+<p>This case study asks, for Lafayette and West Lafayette, Indiana:</p>
+<ol style="list-style-type: decimal">
+<li>What share of residents lives within 800 m of a public park?</li>
+<li>Are <strong>children</strong> and <strong>households without a
+car</strong> as well served as everyone else?</li>
+<li>Which neighborhoods have the least access?</li>
+</ol>
+<p>It is an <strong>intermediate</strong> case study: it uses only the
+tools of the Geoprocessing episodes (buffer, dissolve, clip, intersect,
+areal weighting) and the Foundations episodes on tables and joins. The
+new work is in the <strong>decisions</strong>, and in showing how much
+the answer depends on them.</p>
+</section><section><h2 class="section-heading" id="decisions-that-shape-the-answer">Decisions that shape the answer<a class="anchor" aria-label="anchor" href="#decisions-that-shape-the-answer"></a>
+</h2>
+<hr class="half-width">
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Decision</th>
+<th>Choice here</th>
+<th>Alternatives</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>What counts as a park</td>
+<td>OpenStreetMap features tagged <code>leisure=park</code>,
+<strong>minus</strong> 13 that are not public recreational parks: campus
+malls and plazas, intramural fields, a scout camp, a shrine, an
+apartment dog park and Wolf Park (admission)</td>
+<td>All OSM parks; the cities’ official park lists; only parks over a
+minimum size</td>
+</tr>
+<tr>
+<td>How far is close</td>
+<td>
+<strong>800 m</strong> straight line from the park
+<strong>edge</strong>
+</td>
+<td>400 m (5 minutes); network distance along walkable streets; distance
+to entrances</td>
+</tr>
+<tr>
+<td>Where people live</td>
+<td>Census tracts, with <strong>areal weighting</strong> inside each
+tract</td>
+<td>Block groups or blocks; dasymetric estimation with land cover</td>
+</tr>
+<tr>
+<td>Who counts</td>
+<td>Residents, children (under 18), households without a car</td>
+<td>Older adults, low-income households</td>
+</tr>
+</tbody>
+</table>
+<p>Every row is a judgment call. Write each one down with its reason,
+and test the ones that might change the answer (a <strong>sensitivity
+analysis</strong>).</p>
+</section><section><h2 class="section-heading" id="what-the-analysis-finds">What the analysis finds<a class="anchor" aria-label="anchor" href="#what-the-analysis-finds"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>About <strong>71%</strong> of residents in the two cities live
+within 800 m of a public park, but only about <strong>63%</strong> of
+<strong>children</strong>, while <strong>78%</strong> of households
+without a car do.</li>
+<li>Access is lowest in <strong>Census Tracts 17.01 (east-central
+Lafayette) and 15.01 (southwest Lafayette)</strong>, home to more than
+8,000 people with median incomes well below the county’s typical level,
+where almost no one lives within 800 m of a public park.</li>
+<li>Across income thirds there is <strong>no simple gradient</strong>
+(about 67%, 72% and 64% from lowest to highest income).</li>
+<li>Dropping the 13 non-park features barely changes the result, but the
+<strong>distance</strong> does: at 400 m only about 41% of residents and
+34% of children are served.</li>
+</ul></section><section><h2 class="section-heading" id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>Straight lines</strong> ignore barriers: the Wabash River,
+railroads and highways. Network distance (Data Analysis module, Network
+Analysis; Case Studies, Grocery Access Part 2) is more realistic.</li>
+<li>
+<strong>Edges, not entrances</strong>, and <strong>all parks count
+the same</strong>, whatever their size or facilities.</li>
+<li>
+<strong>Areal weighting</strong> spreads people evenly within
+tracts.</li>
+<li>
+<strong>OpenStreetMap completeness</strong>: a park missing from OSM
+looks like a gap in access. Check low-access tracts against official
+park lists, imagery or a site visit before recommending anything.</li>
+</ul>
+<div id="before-you-start" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="before-you-start" class="callout-inner">
+<h3 class="callout-title">Before you start</h3>
+<div class="callout-content">
+<p>You should be comfortable with the Data Analysis module’s <a href="https://spatialturn.github.io/DataAnalysis/geoprocessing-python.html" class="external-link">Geoprocessing
+in Python</a> episode (notebooks 01a to 01c). The <a href="park-access-qgis.html">QGIS version</a> of this case study uses
+the same data and reaches the same numbers.</p>
+</div>
+</div>
+</div>
+<div id="challenge-1-which-decision-matters-most" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-1-which-decision-matters-most" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Which decision matters most?</h3>
+<div class="callout-content">
+<p>Look at the sensitivity table in the notebook. Which decision changes
+the result most: the list of parks, or the distance? What would you
+report to a city council?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>The <strong>distance</strong>: moving from 800 m to 400 m drops the
+share of residents served from about 71% to about 41%, while removing
+the 13 non-park features changes it by less than one point. Report the
+800 m result as the main figure (it matches the policy standard), state
+the 400 m result alongside it, and name the neighborhoods with the
+lowest access, since those findings hold under every choice.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-2-why-might-children-have-less-access" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-2-why-might-children-have-less-access" class="callout-inner">
+<h3 class="callout-title">Challenge 2: Why might children have less
+access?</h3>
+<div class="callout-content">
+<p>Children are less well served than residents overall. Suggest two
+explanations you could check with the data in this case study.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<p>Possible explanations: (1) families with children live
+disproportionately in <strong>newer subdivisions on the city
+edges</strong>, farther from the older parks near the center; check by
+mapping <code>pop_under18</code> as a share of residents against access.
+(2) Areas with many residents but few children, such as <strong>campus
+and downtown</strong>, are close to parks and raise the overall
+residents’ figure; check by comparing access in tracts with high and low
+shares of children. Both are about <strong>where</strong> groups live,
+which is what an access measure captures.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>An access measure is a chain of decisions: what counts as a
+facility, how far is close, where people live</li>
+<li>Buffer from facility edges, dissolve, intersect with tracts and
+areal-weight each group’s counts</li>
+<li>Report results for groups and places, not only one city-wide
+number</li>
+<li>A sensitivity analysis shows which decisions matter; state
+limitations plainly</li>
+</ul>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="notebook">Notebook<a class="anchor" aria-label="anchor" href="#notebook"></a>
+</h2>
+<hr class="half-width">
+<table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead><tr>
+<th>Notebook</th>
+<th>What you will do</th>
+</tr></thead>
+<tbody><tr>
+<td><a href="https://colab.research.google.com/github/SpatialTurn/CaseStudies/blob/main/notebooks/Park_Access_Lafayette.ipynb" target="_blank" class="external-link">Park
+Access in Lafayette</a></td>
+<td>Define public parks, build the 10-minute walk zone, estimate access
+for residents, children and car-free households, find the least-served
+tracts, compare income groups and run a sensitivity table</td>
+</tr></tbody>
+</table>
+<!--
+Links listed here can be reused across pages as [text][name].
+Add reference-style links below as needed.
+--></section></section><section id="aio-park-access-qgis"><p>Content from <a href="park-access-qgis.html">Park Access in Lafayette (QGIS)</a></p>
+<hr>
+<p>Last updated on 2026-10-20 |
+
+        <a href="https://github.com/SpatialTurn/CaseStudies/edit/main/episodes/park-access-qgis.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 85 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What share of residents, children and car-free households can walk
+to a public park in Lafayette and West Lafayette?</li>
+<li>Which neighborhoods have the least access?</li>
+<li>How much do the analyst’s decisions change the answer?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Turn a policy standard (the 10-minute walk) into a measurable
+definition of access</li>
+<li>Select the features that count as parks with an expression, and
+document the decision</li>
+<li>Estimate access for several population groups with Buffer, Clip,
+Intersection and the Field Calculator</li>
+<li>Join results back to tracts, map them, and test the decisions</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section><h2 class="section-heading" id="why-parks-and-why-walking-distance">Why parks, and why walking distance?<a class="anchor" aria-label="anchor" href="#why-parks-and-why-walking-distance"></a>
+</h2>
+<hr class="half-width">
+<p>Parks are linked to physical activity, mental health, cooler
+neighborhoods in heat waves and social contact. What matters for
+everyday use is <strong>proximity</strong>: many park visits, especially
+by children and older adults, are on foot, and households without a car
+cannot easily reach a park across town. Many cities therefore adopt a
+<strong>10-minute walk</strong> standard: every resident within about a
+half mile (<strong>800 m</strong>) of a park, the benchmark used by the
+Trust for Public Land’s ParkScore and by city park plans.</p>
+<p>This case study asks, for Lafayette and West Lafayette, Indiana:</p>
+<ol style="list-style-type: decimal">
+<li>What share of residents lives within 800 m of a public park?</li>
+<li>Are <strong>children</strong> and <strong>households without a
+car</strong> as well served as everyone else?</li>
+<li>Which neighborhoods have the least access?</li>
+</ol>
+<p>It is an <strong>intermediate</strong> case study: it uses only the
+tools of the Geoprocessing episodes (buffer, dissolve, clip, intersect,
+areal weighting) and the Foundations episodes on tables and joins. The
+new work is in the <strong>decisions</strong>, and in showing how much
+the answer depends on them.</p>
+</section><section><h2 class="section-heading" id="decisions-that-shape-the-answer">Decisions that shape the answer<a class="anchor" aria-label="anchor" href="#decisions-that-shape-the-answer"></a>
+</h2>
+<hr class="half-width">
+<table class="table">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead><tr>
+<th>Decision</th>
+<th>Choice here</th>
+<th>Alternatives</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>What counts as a park</td>
+<td>OpenStreetMap features tagged <code>leisure=park</code>,
+<strong>minus</strong> 13 that are not public recreational parks: campus
+malls and plazas, intramural fields, a scout camp, a shrine, an
+apartment dog park and Wolf Park (admission)</td>
+<td>All OSM parks; the cities’ official park lists; only parks over a
+minimum size</td>
+</tr>
+<tr>
+<td>How far is close</td>
+<td>
+<strong>800 m</strong> straight line from the park
+<strong>edge</strong>
+</td>
+<td>400 m (5 minutes); network distance along walkable streets; distance
+to entrances</td>
+</tr>
+<tr>
+<td>Where people live</td>
+<td>Census tracts, with <strong>areal weighting</strong> inside each
+tract</td>
+<td>Block groups or blocks; dasymetric estimation with land cover</td>
+</tr>
+<tr>
+<td>Who counts</td>
+<td>Residents, children (under 18), households without a car</td>
+<td>Older adults, low-income households</td>
+</tr>
+</tbody>
+</table>
+<p>Every row is a judgment call. Write each one down with its reason,
+and test the ones that might change the answer (a <strong>sensitivity
+analysis</strong>).</p>
+</section><section><h2 class="section-heading" id="what-the-analysis-finds">What the analysis finds<a class="anchor" aria-label="anchor" href="#what-the-analysis-finds"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>About <strong>71%</strong> of residents in the two cities live
+within 800 m of a public park, but only about <strong>63%</strong> of
+<strong>children</strong>, while <strong>78%</strong> of households
+without a car do.</li>
+<li>Access is lowest in <strong>Census Tracts 17.01 (east-central
+Lafayette) and 15.01 (southwest Lafayette)</strong>, home to more than
+8,000 people with median incomes well below the county’s typical level,
+where almost no one lives within 800 m of a public park.</li>
+<li>Across income thirds there is <strong>no simple gradient</strong>
+(about 67%, 72% and 64% from lowest to highest income).</li>
+<li>Dropping the 13 non-park features barely changes the result, but the
+<strong>distance</strong> does: at 400 m only about 41% of residents and
+34% of children are served.</li>
+</ul></section><section><h2 class="section-heading" id="limitations">Limitations<a class="anchor" aria-label="anchor" href="#limitations"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>
+<strong>Straight lines</strong> ignore barriers: the Wabash River,
+railroads and highways. Network distance (Data Analysis module, Network
+Analysis; Case Studies, Grocery Access Part 2) is more realistic.</li>
+<li>
+<strong>Edges, not entrances</strong>, and <strong>all parks count
+the same</strong>, whatever their size or facilities.</li>
+<li>
+<strong>Areal weighting</strong> spreads people evenly within
+tracts.</li>
+<li>
+<strong>OpenStreetMap completeness</strong>: a park missing from OSM
+looks like a gap in access. Check low-access tracts against official
+park lists, imagery or a site visit before recommending anything.</li>
+</ul>
+<hr></section><section><h2 class="section-heading" id="hands-on">Hands-on<a class="anchor" aria-label="anchor" href="#hands-on"></a>
+</h2>
+<hr class="half-width">
+<p>These steps were checked in QGIS 4.0. They use the tools of the Data
+Analysis module’s <a href="https://spatialturn.github.io/DataAnalysis/geoprocessing-qgis.html" class="external-link">Geoprocessing
+in QGIS</a> episode and the Foundations module’s <a href="https://spatialturn.github.io/Foundations/qgis-tables.html" class="external-link">Tables,
+Joins and Selections</a> episode; look back there if a step is
+unfamiliar. The <a href="park-access-python.html">Python version</a> of
+this case study reaches the same numbers.</p>
+<div id="if-qgis-asks-you-to-choose-a-transformation" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="if-qgis-asks-you-to-choose-a-transformation" class="callout-inner">
+<h3 class="callout-title">If QGIS asks you to choose a
+transformation</h3>
+<div class="callout-content">
+<p>When layers in latitude and longitude (EPSG:4326) are drawn in a
+project in UTM (EPSG:26916), QGIS may open a window that begins
+“Multiple operations are possible for converting coordinates”. For this
+county any of the options is accurate to a few meters: keep the first
+(highlighted) one and click <strong>OK</strong>.</p>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="part-1-load-and-reproject">Part 1: Load and reproject<a class="anchor" aria-label="anchor" href="#part-1-load-and-reproject"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>New project, CRS <strong>EPSG:26916</strong>. Load with <strong>Add
+Vector Layer</strong>, <strong>Protocol: HTTP(S)</strong>, <strong>Type:
+HTTP/HTTPS/FTP</strong>:
+<ul>
+<li><code>https://raw.githubusercontent.com/SpatialTurn/Foundations/main/data/tippecanoe_parks.geojson</code></li>
+<li><code>https://raw.githubusercontent.com/SpatialTurn/Foundations/main/data/tippecanoe_tracts_acs.geojson</code></li>
+<li><code>https://raw.githubusercontent.com/SpatialTurn/CaseStudies/main/data/study_area.geojson</code></li>
+</ul>
+</li>
+<li>Reproject all three to EPSG:26916 (<strong>Vector &gt; Data
+Management Tools &gt; Reproject Layer</strong>) and name them
+<code>parks_utm</code>, <code>tracts_utm</code> and
+<code>city_utm</code>.</li>
+</ol>
+<p><strong>Check:</strong> 68 parks, 43 tracts, 1 city polygon, all in
+EPSG:26916.</p>
+</div>
+<div class="section level3">
+<h3 id="part-2-keep-the-public-parks">Part 2: Keep the public parks<a class="anchor" aria-label="anchor" href="#part-2-keep-the-public-parks"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open the attribute table of <code>parks_utm</code> and read the
+names. Which are not public recreational parks?</p></li>
+<li>
+<p>Processing Toolbox: <strong>Extract by expression</strong>, input
+<code>parks_utm</code>, expression:</p>
+<pre><code>NOT "name" IN ('Bell Tower Area', 'Centennial Mall', 'Centennial Mall South',
+  'Memorial Mall', 'Purdue Mall', 'Stadium Mall', 'De Bedout Plaza', 'Spitzer Court',
+  'Purdue Gold Intramural Fields', 'Cary Camp, Sagamore Council, BSA',
+  'Our Lady of Lourdes Shrine', 'West Ridge Apartments Dog Park', 'Wolf Park')</code></pre>
+</li>
+<li><p>Name the result <code>public_parks</code>.</p></li>
+</ol>
+<figure><img src="../pa_qgis_extract.png" alt="Screenshot of the QGIS Extract by expression tool. Input layer is parks_utm in EPSG:26916. The expression box reads NOT name IN followed by a list of thirteen names in single quotes: Bell Tower Area, Centennial Mall, Centennial Mall South, Memorial Mall, Purdue Mall, Stadium Mall, De Bedout Plaza, Spitzer Court, Purdue Gold Intramural Fields, Cary Camp Sagamore Council BSA, Our Lady of Lourdes Shrine, West Ridge Apartments Dog Park and Wolf Park." class="figure mx-auto d-block"><div class="figcaption">Extract by expression with the list of excluded
+features.</div>
+</figure><p><strong>Check:</strong> <code>public_parks</code> has
+<strong>55</strong> features. The expression is your documented
+decision: save it in your project notes.</p>
+</div>
+<div class="section level3">
+<h3 id="part-3-the-10-minute-walk-zone">Part 3: The 10-minute walk zone<a class="anchor" aria-label="anchor" href="#part-3-the-10-minute-walk-zone"></a>
+</h3>
+<p><strong>Vector &gt; Geoprocessing Tools &gt; Buffer</strong>: input
+<code>public_parks</code>, distance <strong>800</strong> meters,
+segments 16, tick <strong>Dissolve result</strong>. Name it
+<code>walk_zone</code>.</p>
+</div>
+<div class="section level3">
+<h3 id="part-4-residents-children-and-car-free-households-in-the-cities">Part 4: Residents, children and car-free households in the
+cities<a class="anchor" aria-label="anchor" href="#part-4-residents-children-and-car-free-households-in-the-cities"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>On <code>tracts_utm</code>, add the field <code>tract_m2</code> =
+<code>area($geometry)</code> (Field Calculator).</li>
+<li>
+<strong>Clip</strong> <code>tracts_utm</code> to
+<code>city_utm</code> and name it <code>tracts_city</code>.</li>
+<li>In <code>tracts_city</code>, add three decimal fields:
+<ul>
+<li>
+<code>pop_city</code> =
+<code>area($geometry) / "tract_m2" * "total_pop"</code>
+</li>
+<li>
+<code>kids_city</code> =
+<code>area($geometry) / "tract_m2" * "pop_under18"</code>
+</li>
+<li>
+<code>nocar_city</code> =
+<code>area($geometry) / "tract_m2" * "hh_no_vehicle"</code>
+</li>
+</ul>
+</li>
+<li>
+<strong>Intersection</strong> of <code>tracts_city</code> with
+<code>walk_zone</code>; name it <code>near_pieces</code>. Add
+<code>pop_near</code>, <code>kids_near</code> and
+<code>nocar_near</code> with the same three expressions.</li>
+<li>With the <strong>Statistics</strong> panel, sum each field and
+divide: for example the sum of <code>pop_near</code> divided by the sum
+of <code>pop_city</code>.</li>
+</ol>
+<p><strong>Check:</strong> about <strong>71%</strong> of residents,
+<strong>63%</strong> of children and <strong>78%</strong> of households
+without a car are within 800 m of a public park.</p>
+</div>
+<div class="section level3">
+<h3 id="part-5-access-by-tract">Part 5: Access by tract<a class="anchor" aria-label="anchor" href="#part-5-access-by-tract"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Because the walk zone was dissolved into one feature,
+<code>near_pieces</code> has at most one piece per tract. Join it back:
+Processing Toolbox, <strong>Join attributes by field value</strong>,
+input <code>tracts_city</code>, field <code>GEOID</code>, input 2
+<code>near_pieces</code>, field <code>GEOID</code>, fields to copy
+<code>pop_near</code>, join type <strong>Take attributes of the first
+matching feature only</strong>. Name it <code>access</code>.</li>
+<li>Add <code>access_pct</code> =
+<code>coalesce("pop_near", 0) / "pop_city" * 100</code>.
+<code>coalesce()</code> turns the missing values of tracts with no piece
+in the zone into 0.</li>
+<li>Style <code>access_pct</code> with <strong>Graduated</strong>,
+manual classes 0 to 25, 25 to 50, 50 to 75 and 75 to 100, a green ramp;
+draw <code>public_parks</code> on top with a dotted fill and the city
+limits as a dashed line.</li>
+<li>Sort the attribute table of <code>access</code> by
+<code>access_pct</code>.</li>
+</ol>
+<figure><img src="../pa_qgis_result.png" alt="Map of Lafayette and West Lafayette tracts shaded in four greens by the share of residents within 800 meters of a public park, with public parks drawn with a dotted pattern and the city limits dashed. Central tracts on both sides of the river are darkest (75 to 100 percent). The palest tracts (0 to 25 percent) are on the southeast and south sides of Lafayette and on the eastern edge; several outer tracts in West Lafayette and southern Lafayette are in the 25 to 50 percent class." class="figure mx-auto d-block"><div class="figcaption">Share of residents within 800 m of a public
+park, by tract.</div>
+</figure><p><strong>Check:</strong> Census Tract 17.01 has 0% and 15.01 about
+4%.</p>
+</div>
+<div class="section level3">
+<h3 id="part-6-test-the-decisions">Part 6: Test the decisions<a class="anchor" aria-label="anchor" href="#part-6-test-the-decisions"></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Rerun Parts 3 and 4 with <strong>400 m</strong>: about 41% of
+residents and 34% of children.</li>
+<li>Rerun them with all 68 parks (skip Part 2): about 71.5% of
+residents, almost unchanged.</li>
+</ol>
+<p>The <strong>Graphical Modeler</strong> (<strong>Processing &gt;
+Graphical Modeler</strong>) can chain Parts 2 to 4 into one tool with
+the distance as an input, so a sensitivity analysis becomes one click
+per scenario.</p>
+<hr>
+<div id="challenge-1-which-decision-matters-most" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-1-which-decision-matters-most" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Which decision matters most?</h3>
+<div class="callout-content">
+<p>Look at the sensitivity table in the notebook. Which decision changes
+the result most: the list of parks, or the distance? What would you
+report to a city council?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>The <strong>distance</strong>: moving from 800 m to 400 m drops the
+share of residents served from about 71% to about 41%, while removing
+the 13 non-park features changes it by less than one point. Report the
+800 m result as the main figure (it matches the policy standard), state
+the 400 m result alongside it, and name the neighborhoods with the
+lowest access, since those findings hold under every choice.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge-2-why-might-children-have-less-access" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="challenge-2-why-might-children-have-less-access" class="callout-inner">
+<h3 class="callout-title">Challenge 2: Why might children have less
+access?</h3>
+<div class="callout-content">
+<p>Children are less well served than residents overall. Suggest two
+explanations you could check with the data in this case study.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Possible explanations: (1) families with children live
+disproportionately in <strong>newer subdivisions on the city
+edges</strong>, farther from the older parks near the center; check by
+mapping <code>pop_under18</code> as a share of residents against access.
+(2) Areas with many residents but few children, such as <strong>campus
+and downtown</strong>, are close to parks and raise the overall
+residents’ figure; check by comparing access in tracts with high and low
+shares of children. Both are about <strong>where</strong> groups live,
+which is what an access measure captures.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>An access measure is a chain of decisions: what counts as a
+facility, how far is close, where people live</li>
+<li>Buffer from facility edges, dissolve, intersect with tracts and
+areal-weight each group’s counts</li>
+<li>Report results for groups and places, not only one city-wide
+number</li>
+<li>A sensitivity analysis shows which decisions matter; state
+limitations plainly</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+Links listed here can be reused across pages as [text][name].
+Add reference-style links below as needed.
+-->
+</div>
+</section></section><section id="aio-introduction"><p>Content from <a href="introduction.html">Case Study: Food Deserts</a></p>
 <hr>
 <p>Last updated on 2026-10-17 |
 
@@ -649,7 +1344,7 @@ it?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The <strong>standard</strong> measure (1 mile in urban areas) would
 miss it, because 0.8 miles is under the threshold. The <strong>strict
@@ -682,7 +1377,7 @@ most tracts, and which the fewest? Why?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Some answers follow from the definitions. The <strong>strict
 urban</strong> measure (half a mile and 10 miles) can never flag fewer
@@ -1164,7 +1859,7 @@ present, and which would a field visit need to add?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The file has <code>store_name</code>, <code>store_type</code>,
 <code>address</code>, <code>city</code>, <code>osm_id</code>,
@@ -1405,7 +2100,7 @@ analysis?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You may notice that six convenience stores, such as a Love’s travel
 stop, lie <strong>just outside the city limits</strong>. Stores like
@@ -1626,7 +2321,7 @@ expected. Name two possible reasons.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ul>
 <li>The street network requires a detour, for example because there is
@@ -1745,7 +2440,7 @@ change?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The share of city streets within reach rises from about 11% to about
 40%, and the green areas begin to join along the main corridors. But
@@ -1780,7 +2475,7 @@ map layout, or to compare neighborhoods.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor notes </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p><strong>Suggested pacing</strong>: loading and inspection 10 minutes;
 extracting and reprojecting 15; shortest paths 15; comparing distances
