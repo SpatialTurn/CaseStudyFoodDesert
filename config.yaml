@@ -66,6 +66,8 @@ contact: 'ilindsay@purdue.edu'
 
 # Order of episodes in your lesson
 episodes: 
+- park-access-python.md
+- park-access-qgis.md
 - introduction.md
 - grocery-qfield.md
 - grocery-network.md

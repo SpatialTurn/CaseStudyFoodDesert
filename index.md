@@ -9,10 +9,12 @@ QGIS.
 
 | Case study | Question | Tools |
 |---|---|---|
+| Park Access (intermediate; Python or QGIS) | Who can walk to a public park in Lafayette and West Lafayette, Indiana, and are children and households without a car as well served as everyone else? | Python notebook (Colab) or QGIS |
 | Food Deserts | Where do people have low income **and** live far from a supermarket? How does the USDA measure this, and can we rebuild its analysis from open data? | Python notebooks (Colab) |
 | Grocery Access (two parts) | How would a team map grocery stores in the field, and how far must people travel to a supermarket **along the road network** in Lafayette and West Lafayette, Indiana? | QField (demonstration), QGIS |
 
-More case studies will be added over time.
+Start with Park Access: it uses only the Geoprocessing tools from the Data Analysis module. Food Deserts and
+Grocery Access are more advanced. More case studies will be added over time.
 
 ::::::::::::::::::::::::::::::::::::::::::: prereq
 
@@ -20,9 +22,12 @@ More case studies will be added over time.
 
 - A Google account, to open the notebooks in Google Colab
 - A free Census API key for the Expert notebook (see Setup below)
-- QGIS installed on your computer, for the grocery access case study (see Setup below)
+- QGIS installed on your computer, for the park access (QGIS version) and grocery access case studies (see Setup below)
 - Basic Python and pandas. The Data Collection module's Census notebooks are good preparation: they cover
   census tracts, GEOIDs and joining tables to maps.
+- For the park access case study: the Data Analysis module's Geoprocessing episode, in
+  [Python](https://spatialturn.github.io/DataAnalysis/geoprocessing-python.html) or
+  [QGIS](https://spatialturn.github.io/DataAnalysis/geoprocessing-qgis.html)
 - For the grocery access case study: basic familiarity with QGIS, for example from the Foundations
   module's [Getting Started with QGIS](https://spatialturn.github.io/Foundations/qgisintro.html) episode
 

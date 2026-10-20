@@ -2,6 +2,18 @@
 title: 'Instructor Notes'
 ---
 
+## Park access (Python and QGIS)
+
+- Intermediate case study; prerequisites are the Geoprocessing episodes. Run it before Food Deserts.
+- Expected numbers (800 m, 55 public parks): residents 71.1%, children 63.2%, households without a car 77.5%;
+  tracts 17.01 (0%) and 15.01 (about 4%) have the lowest access; income thirds 66.5 / 72.3 / 63.5%; all 68 OSM
+  parks 71.5%; 400 m 40.9% residents and 33.9% children; parks of 2 ha or more 53.2% residents.
+- The list of excluded features is a judgment call on purpose. Ask learners whether they agree (for example,
+  should Purdue's malls count?), then show in the sensitivity table that it hardly changes the answer, while the
+  distance does.
+- Before anyone draws conclusions about tracts 17.01 and 15.01, check the cities' official park lists: OSM may be
+  missing a park.
+
 ## Food deserts: overall approach
 
 - The food desert case study has a short reading part (the concept, the USDA method and its limitations)

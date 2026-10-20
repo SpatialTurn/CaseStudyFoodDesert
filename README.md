@@ -10,11 +10,20 @@ The lesson is built with [The Carpentries Workbench](https://carpentries.github.
 
 | Episode file | Case study | Notebooks |
 |---|---|---|
+| `episodes/park-access-python.md` | Park access in Lafayette (intermediate, Python; Step 8, October 2026) | `notebooks/Park_Access_Lafayette.ipynb` (`notebook_builders/cs_park_access.py`) |
+| `episodes/park-access-qgis.md` | Park access in Lafayette (intermediate, QGIS; same data and numbers) | None (QGIS loads the Foundations and Case Studies files by URL) |
 | `episodes/introduction.md` | Food deserts: the USDA low-income, low-access (LILA) measure | `notebooks/TIGER_FoodDesert_Tutorial.ipynb` (Beginner) and `notebooks/Food_Desert_Analysis_Automated.ipynb` (Expert) |
 | `episodes/grocery-qfield.md` | Grocery access, Part 1: mapping grocery stores with QField (demonstration) | None (QGIS loads `data/grocery_stores.geojson` by URL) |
 | `episodes/grocery-network.md` | Grocery access, Part 2: shortest paths and service areas in QGIS | None (QGIS loads the three files in `data/` by URL) |
 
 ### Data used by the notebooks
+
+### Park access
+
+Read by URL from the Foundations repository: `tippecanoe_parks.geojson` (68 named OpenStreetMap parks, (c)
+OpenStreetMap contributors, ODbL) and `tippecanoe_tracts_acs.geojson` (tracts with ACS 2020-2024 estimates), plus
+`data/study_area.geojson` from this repository. `pa_qgis_*.png` are QGIS 4.0 screenshots and a QGIS render composed
+by `figure_builders/pa_result_fig.py`.
 
 ### Food deserts
 

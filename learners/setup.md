@@ -4,6 +4,8 @@ title: Setup
 
 The **food desert** case study runs in **Google Colab**, a free service that runs Jupyter notebooks in your browser. Nothing needs to be installed on your computer, and every dataset is fetched automatically by the notebooks themselves.
 
+The **park access** case study comes in two versions, a Colab notebook and a QGIS walkthrough, with the same data and results; it needs no API key.
+
 The **grocery access** case study uses **QGIS**, a free desktop GIS. See [the last section](#grocery-access-case-study-qgis) of this page.
 
 ## Data Sets
