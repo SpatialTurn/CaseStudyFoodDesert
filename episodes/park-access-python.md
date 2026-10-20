@@ -76,9 +76,9 @@ answer (a **sensitivity analysis**).
 
 ## Before you start
 
-You should be comfortable with the Data Analysis module's
-[Geoprocessing in Python](https://spatialturn.github.io/DataAnalysis/geoprocessing-python.html) episode (notebooks
-01a to 01c). The [QGIS version](park-access-qgis.md) of this case study uses the same data and reaches the same
+You should be comfortable with the Data Processing module's
+[Geoprocessing in Python](https://spatialturn.github.io/DataProcessing/geoprocessing-python.html) episode (notebooks
+02a to 02c). The [QGIS version](park-access-qgis.md) of this case study uses the same data and reaches the same
 numbers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
